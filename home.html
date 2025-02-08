@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Home</title>
+    <style>
+        body {
+            font-size: 12px;
+            font-family: 'San Francisco', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; /* تعديل الخط هنا */
+            background: #3e7b92;
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            left: 50%;
+            top: 30%;
+            position: absolute;
+            transform: translate(-50%, -30%);
+            width: 100%;
+            max-width: 350px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            background: #93c7d6;
+            max-height: 0;
+            transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+            overflow: hidden;
+            visibility: hidden;
+            border-radius: 3px;
+            opacity: 0;
+            transform: rotate(180deg);
+        }
+
+        li a {
+            padding: 12px 0;
+            display: block;
+            transition: 0.25s;
+        }
+        li a:hover {
+            background: #5d91a0;
+        }
+
+        a {
+            color: #000;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        i {
+            padding: 20px;
+            background: rgba(58, 46, 46, 1.45);
+            border-radius: 3px;
+            color: #5d91a0;
+            transition: 0.25s;
+            animation: 1.25s bounce infinite;
+        }
+        i:hover {
+            cursor: pointer;
+            background: rgba(00, 00, 00, 1.45);
+            animation-play-state: paused;
+        }
+        ul.open {
+            max-height: 480px;
+            visibility: visible;
+            opacity: 1;
+            transform: rotate(0);
+        }
+
+        @keyframes bounce {
+            0% {margin-top: 0;}
+            50% {margin-top: -15px; margin-bottom: 15px;}
+            100% {margin-top: 0;}
+        }
+
+        .about {
+            margin-top: 50px;
+            padding: 20px;
+            background: #2b3b3f;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 400px;
+            text-align: left;
+            color: #fff;
+        }
+        .about h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #5d91a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fa fa-bars" title="Click me!"></i>
+        <ul>
+            <li><a href=""> </a></li>
+
+            <li><a href="https://discord.gg/3RgNvqecFX">الديسكورد</a></li>
+            <li><a href="https://www.youtube.com/@abohebeh1">اليوتيوب</a></li>
+            <li><a href="index (3).html">الرجوع</a></li>
+        </ul>
+    </div>
+
+    <div class="about">
+        <h2>حول السيرفر</h2>
+        <p>مرحبًا بكم في سيرفرنا المميز! نقدم لكم تجربة فريدة من نوعها مع العديد من الأنشطة والخدمات الرائعة. انضم إلينا واستمتع بأفضل تجربة لعب.</p>
+    </div>
+
+    <script>
+        document.querySelector("i").addEventListener("click", function () {
+            document.querySelector("ul").classList.toggle("open");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تقديمات</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* اللون الأسود الداكن */
+            color: #fff;
+            direction: rtl;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e; /* خلفية داكنة */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            text-align: center;
+            color: #1e90ff; /* الأزرق الفاتح */
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            text-align: center;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            color: #1e90ff; /* الأزرق الفاتح */
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            background-color: #1e90ff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4169e1; /* تأثير عند مرور الماوس */
+        }
+
+        .alert {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>لوحة التقديمات</h1>
+            <p>أدخل معلوماتك لتقديم طلبك في النظام.</p>
+        </header>
+        
+        <section class="form-section">
+            <h2>تفاصيل التقديم</h2>
+            <form id="submission-form">
+                <div class="input-group">
+                    <label for="full_name">الاسم الحقيقي الكامل:</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="أدخل اسمك بالكامل" required>
+                </div>
+                <div class="input-group">
+                    <label for="age">العمر:</label>
+                    <input type="number" id="age" name="age" placeholder="أدخل عمرك" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">الجنس:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">ذكر</option>
+                        <option value="female">أنثى</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="discord_name">اسمك في Discord:</label>
+                    <input type="text" id="discord_name" name="discord_name" placeholder="أدخل اسمك في Discord" required>
+                </div>
+                <div class="input-group">
+                    <label for="discord_id">ID في Discord:</label>
+                    <input type="text" id="discord_id" name="discord_id" placeholder="أدخل ID في Discord" required>
+                </div>
+                <div class="input-group">
+                    <label for="has_microphone">هل لديك مايكروفون؟</label>
+                    <select id="has_microphone" name="has_microphone" required>
+                        <option value="yes">نعم</option>
+                        <option value="no">لا</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="location">من أين أنت؟:</label>
+                    <input type="text" id="location" name="location" placeholder="أدخل مدينتك أو بلدك" required>
+                </div>
+                
+                <!-- أوامر MG، PG، KOS، DM وغيرها -->
+                <div class="input-group">
+                    <label for="mg">ما هو ال MG:</label>
+                    <textarea id="mg" name="mg" placeholder="أدخل أوامر MG التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="pg">ما هو ال PG:</label>
+                    <textarea id="pg" name="pg" placeholder="أدخل أوامر PG التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="kos">ما هو ال KOS:</label>
+                    <textarea id="kos" name="kos" placeholder="أدخل أوامر KOS التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="tk">ما هو ال TK:</label>
+                    <textarea id="tk" name="tk" placeholder="أدخل أوامر TK التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="dm">ما هو ال DM:</label>
+                    <textarea id="dm" name="dm" placeholder="أدخل أوامر DM التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="md">ما هو ال MD:</label>
+                    <textarea id="md" name="md" placeholder="أدخل أوامر MD التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="pd">ما هو ال PD:</label>
+                    <textarea id="pd" name="pd" placeholder="أدخل أوامر PD التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="factions">أوامر الفصائل:</label>
+                    <textarea id="factions" name="factions" placeholder="أدخل أوامر الفصائل التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="recon">أوامر Recon:</label>
+                    <textarea id="recon" name="recon" placeholder="أدخل أوامر Recon التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="goto_jail">أوامر Jail:</label>
+                    <textarea id="goto_jail" name="goto_jail" placeholder="أدخل أوامر Jail التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="add">أوامر Adde:</label>
+                    <textarea id="add" name="add" placeholder="أدخل أوامر Add التي تعرفها" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="dele">أوامر Dele:</label>
+                    <textarea id="dele" name="dele" placeholder="أدخل أوامر Dele التي تعرفها" required></textarea>
+                </div>
+                <button type="submit">تقديم</button>
+            </form>
+            <div class="alert" id="error-message"></div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('submission-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // الحصول على البيانات من النموذج
+            var formData = new FormData(this);
+            var payload = {};
+            formData.forEach((value, key) => {
+                payload[key] = value;
+            });
+
+            // إرسال البيانات إلى Webhook Discord
+            fetch('https://discord.com/api/webhooks/1337143310648606832/8LB9Jladj7Dm01Xdov1qVOtcjjE4egI8nNztxX0puKzGnV_pdi0Aypq7aW8_DIJ5Fzjw', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: `تقديم جديد:\n${Object.entries(payload).map(([key, value]) => `${key}: ${value}`).join('\n')}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.status === 204) {
+                    alert('تم تقديم الطلب بنجاح!');
+                    // مسح الحقول بعد النجاح
+                    document.getElementById('submission-form').reset();
+                } else {
+                    alert('حدث خطأ أثناء إرسال الطلب إلى Discord.');
+                }
+            })
+            .catch(error => {
+                console.error(' تم بنجاح:', error);
+                alert('حدث خطأ أثناء التقديم.');
+            });
+        });
+    </script>
+</body>
+</html>
