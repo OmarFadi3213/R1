@@ -138,13 +138,13 @@
             <label for="discordName">اسمك داخل الديسكورد:</label>
             <input type="text" id="discordName" placeholder="أدخل اسمك داخل الديسكورد" required>
             
-            <label for="role"> ما هو الرول بلا:</label>
+            <label for="role"> ما هو الرول بلاي:</label>
             <input type="text" id="role" placeholder="أدخل المعنى هنا" required>
             
             <label for="pg">PG:</label>
             <input type="text" id="pg" placeholder=" PG ما هو ال " required>
             
-            <label for="dmx">DMX:</label>
+            <label for="dmx">Dm:</label>
             <input type="text" id="dmx" placeholder=" ما هو ال Pg " required>
             
             <button onclick="submitForm()">إرسال</button>
@@ -182,7 +182,7 @@
             const webhookURL = "https://discord.com/api/webhooks/1337804097545568359/3xfLnX9v4yeJcXGyzYPwQqtMKolUBvMgI4yGq5LQYTG4vlVUhVhU7ugQou1Y4OT2EF9w";
     
             const messageData = {
-                content: `**تفاصيل التفعيل**\n**سيريالك:** ${serial}\n**اسمك:** ${name}\n**اسمك داخل الديسكورد:** ${discordName}\n**الرول بلا:** ${role}\n**PG:** ${pg}\n**DMX:** ${dmx}\n\n[رابط الصورة]( ${imageURL} )`
+                content: `**تفاصيل التفعيل**\n**سيريالك:** ${serial}\n**اسمك:** ${name}\n**اسمك داخل الديسكورد:** ${discordName}\n**الرول بلاي:** ${role}\n**PG:** ${pg}\n**DM:** ${dmx}\n\nhttps://media.discordapp.net/attachments/1136467603653668904/1337807663370866741/loadingBarNorth.png?ex=67a8c9fa&is=67a7787a&hm=14448c3a19f47d999cefab3dfed9beba00a4241bc4f585f357c0ef6e21ba760b&=&format=webp&quality=lossless&width=660&height=27( ${imageURL} )`
             };
     
             try {
