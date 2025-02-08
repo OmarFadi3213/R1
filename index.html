@@ -1,106 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Dropdown Menu</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://use.typekit.net/vwo3hat.css">
+    <title>R1 - سيرفر MTA</title>
     <style>
         body {
-            font-size: 12px;
-            font-family: sans-serif;
-            background: #b8e3ef;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0a0f24, #000);
+            color: white;
             text-align: center;
+        }
+        .navbar {
+            background: #0a0f24;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .navbar a {
+            color: #4aa8ff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            color: #1e90ff;
         }
         .container {
-            text-align: center;
-            left: 50%;
-            top: 50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            flex-direction: column;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-            background: #93c7d6;
-            max-height: 0;
-            transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
-            overflow: hidden;
-            visibility: hidden;
-            border-radius: 3px;
-            opacity: 0;
-            transform: rotate(180deg);
-        }
-
-        li a {
-            padding: 12px 0;
-            display: block;
-            transition: 0.25s;
-        }
-        li a:hover {
-            background: #6fabbc;
-        }
-
-        a {
-            color: #2b3b3f;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-        i {
-            padding: 20px;
-            background: rgba(39, 74, 85, 0.95);
-            border-radius: 3px;
-            color: #6fabbc;
-            transition: 0.25s;
-            animation: 1.25s bounce infinite;
-        }
-        i:hover {
+        .activate-button {
+            background: #1e90ff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
             cursor: pointer;
-            background: rgba(39, 74, 85, 0.95);
-            animation-play-state: paused;
+            border-radius: 8px;
+            transition: 0.3s;
         }
-        ul.open {
-            max-height: 480px;
-            visibility: visible;
-            opacity: 1;
-            transform: rotate(0);
+        .activate-button:hover {
+            background: #4aa8ff;
         }
-
-        @keyframes bounce {
-            0% {margin-top: 0;}
-            50% {margin-top: -15px; margin-bottom: 15px;}
-            100% {margin-top: 0;}
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
         }
-
-        .container ~ * {
-            color: #2b3b3f;
-            text-transform: uppercase;
-            position: absolute;
-            bottom: 10px;
+        /* Styling the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        .modal-content {
+            background: linear-gradient(to bottom, #0a0f24, #000);
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+            color: white;
+        }
+        .modal input,
+        .modal button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .modal button {
+            background-color: #1e90ff;
+            color: white;
+            cursor: pointer;
+        }
+        .modal button:hover {
+            background-color: #4aa8ff;
+        }
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#">القوانين</a>
+        <a href="#">التقديمات</a>
+        <a href="#">المتجر</a>
+    </div>
     <div class="container">
-        <i class="fa fa-bars" title="Click me!"></i>
-        <ul>
-            <li><a href="home.html">الرئيسية</a></li>
-            <li><a href="app.html">التقديمات</a></li>
-            <li><a href="shop.html">المتجر</a></li>
-            <li><a href="ruls.html">القوانين</a></li>
-        </ul>
+        <img src="https://media.discordapp.net/attachments/1334856385694928916/1337062203349667933/Modern_Letter_AS_Logo_Instagram_Post.png?ex=67a80df6&is=67a6bc76&hm=58ff5fc2a64fbd783d051f1e497766d656d145fa517fce1d81185d8c0e4eaacc&=&format=webp&quality=lossless&width=671&height=671" alt="R1 Logo" class="logo">
+        <h1>مرحبًا بك في سيرفر R1</h1>
+        <p>اضغط على الزر أدناه لتفعيل الدخول إلى السيرفر</p>
+        <button class="activate-button" onclick="showModal()">تفعيل الدخول</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Modal for the questions -->
+    <div class="modal" id="activationModal">
+        <div class="modal-content">
+            <h2>أدخل معلوماتك</h2>
+            <img src="https://media.discordapp.net/attachments/1334856385694928916/1337062203349667933/Modern_Letter_AS_Logo_Instagram_Post.png" alt="R1 Logo" class="logo">
+            <label for="serial">سيريالك:</label>
+            <input type="text" id="serial" placeholder="أدخل سيريالك هنا" required>
+            
+            <label for="name">اسمك:</label>
+            <input type="text" id="name" placeholder="أدخل اسمك هنا" required>
+            
+            <label for="discordName">اسمك داخل الديسكورد:</label>
+            <input type="text" id="discordName" placeholder="أدخل اسمك داخل الديسكورد" required>
+            
+            <label for="role"> ما هو الرول بلا:</label>
+            <input type="text" id="role" placeholder="أدخل المعنى هنا" required>
+            
+            <label for="pg">PG:</label>
+            <input type="text" id="pg" placeholder=" PG ما هو ال " required>
+            
+            <label for="dmx">DMX:</label>
+            <input type="text" id="dmx" placeholder=" ما هو ال Pg " required>
+            
+            <button onclick="submitForm()">إرسال</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        تم إرسال البيانات بنجاح! انتظر تفعيلك.
+    </div>
+
     <script>
-        $("i").click(function () {
-            $("ul").toggleClass("open");
-        });
+        function showModal() {
+            document.getElementById('activationModal').style.display = 'flex';
+        }
+    
+        async function submitForm() {
+            const serial = document.getElementById('serial').value;
+            const name = document.getElementById('name').value;
+            const discordName = document.getElementById('discordName').value;
+            const role = document.getElementById('role').value;
+            const pg = document.getElementById('pg').value;
+            const dmx = document.getElementById('dmx').value;
+    
+            // التحقق من أن جميع الحقول تم تعبئتها
+            if (!serial || !name || !discordName || !role || !pg || !dmx) {
+                alert("يرجى تعبئة جميع الحقول.");
+                return;
+            }
+    
+            // رابط الصورة الذي تريد إرساله
+            const imageURL = "https://cdn.discordapp.com/attachments/1136467603653668904/1337806152754266233/loadingBarNorth.png?ex=67a8c892&is=67a77712&hm=6a9f9eb9007f5f8fff4c00ea17fa6d8a1fcb1011608039209231a3cd4e1fc0c5&";
+    
+            // Discord Webhook URL
+            const webhookURL = "https://discord.com/api/webhooks/1337804097545568359/3xfLnX9v4yeJcXGyzYPwQqtMKolUBvMgI4yGq5LQYTG4vlVUhVhU7ugQou1Y4OT2EF9w";
+    
+            const messageData = {
+                content: `**تفاصيل التفعيل**\n**سيريالك:** ${serial}\n**اسمك:** ${name}\n**اسمك داخل الديسكورد:** ${discordName}\n**الرول بلا:** ${role}\n**PG:** ${pg}\n**DMX:** ${dmx}\n\n[رابط الصورة]( ${imageURL} )`
+            };
+    
+            try {
+                const response = await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(messageData)
+                });
+    
+                console.log('Response status:', response.status);
+                if (response.ok) {
+                    showNotification('تم إرسال البيانات بنجاح! انتظر تفعيلك.');
+                } else {
+                    alert('حدث خطأ أثناء إرسال البيانات.');
+                }
+            } catch (error) {
+                console.error('Error sending data:', error);
+                alert('حدث خطأ أثناء إرسال البيانات.');
+            }
+    
+            // Hide the modal
+            document.getElementById('activationModal').style.display = 'none';
+        }
+    
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.innerHTML = message;
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
     </script>
-</body>
-</html>
+    
